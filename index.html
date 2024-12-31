@@ -3,60 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Gallery</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Love for Smriti</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffcccb;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            display: none;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ff69b4;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: #ff1493;
+        }
+
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: #ff69b4;
+            margin: 20px auto;
+            transform: rotate(-45deg);
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+
+        .message {
+            display: none;
+            font-size: 2rem;
+            color: #ff1493;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+        }
+
+        .initial-button {
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .initial-button:hover {
+            background-color: #ff1493;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Art Gallery</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="home">
-            <h2>Welcome to the Art Gallery</h2>
-            <p>Discover a collection of beautiful artworks from various artists.</p>
-        </section>
-        <section id="gallery">
-            <h2>Gallery</h2>
-            <div class="artwork">
-                <img src="art1.jpg" alt="Art 1">
-                <p>Artwork 1 Description</p>
-            </div>
-            <div class="artwork">
-                <img src="art2.jpg" alt="Art 2">
-                <p>Artwork 2 Description</p>
-            </div>
-            <div class="artwork">
-                <img src="art3.jpg" alt="Art 3">
-                <p>Artwork 3 Description</p>
-            </div>
-        </section>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Learn more about our gallery and the artists we feature.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form action="#" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Art Gallery. All rights reserved.</p>
-    </footer>
+    <button class="initial-button" onclick="showContainer()">Click Here</button>
+    <div class="container">
+        <h1>I Love You, Smriti!</h1>
+        <div class="heart"></div>
+        <p>Click the button below to reveal a special message.</p>
+        <button onclick="showMessage()">Show Message</button>
+        <div class="message" id="message">You are the love of my life!</div>
+    </div>
+
+    <script>
+        function showContainer() {
+            document.querySelector('.initial-button').style.display = 'none';
+            document.querySelector('.container').style.display = 'block';
+        }
+
+        function showMessage() {
+            document.getElementById('message').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
